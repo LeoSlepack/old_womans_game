@@ -78,10 +78,10 @@ function checkEl(player1, player2) {
 
             if (b1Child == 'x' && b2Child == 'x' && b3Child == 'x') {
                 // x venceu
-                console.log("o x venceu");
+                declareWinner('x');
             } else if (b1Child == 'o' && b2Child == 'o' && b3Child == 'o') {
                 // o venceu 
-                console.log("o O venceu");
+                declareWinner('o');
             }
 
         }
@@ -94,10 +94,10 @@ function checkEl(player1, player2) {
 
             if (b4Child == 'x' && b5Child == 'x' && b6Child == 'x') {
                 // x venceu
-                console.log("o x venceu");
+                declareWinner('x');
             } else if (b4Child == 'o' && b5Child == 'o' && b6Child == 'o') {
                 // o venceu 
-                console.log("o O venceu");
+                declareWinner('o');
             }
 
         }
@@ -110,10 +110,10 @@ function checkEl(player1, player2) {
 
             if (b7Child == 'x' && b8Child == 'x' && b9Child == 'x') {
                 // x venceu
-                console.log("o x venceu");
+                declareWinner('x');
             } else if (b7Child == 'o' && b8Child == 'o' && b9Child == 'o') {
                 // o venceu 
-                console.log("o O venceu");
+                declareWinner('o');
             }
 
         }
@@ -127,10 +127,10 @@ function checkEl(player1, player2) {
 
             if (b1Child == 'x' && b4Child == 'x' && b7Child == 'x') {
                 // x venceu
-                console.log("o x venceu");
+                declareWinner('x');
             } else if (b1Child == 'o' && b4Child == 'o' && b7Child == 'o') {
                 // o venceu 
-                console.log("o O venceu");
+                declareWinner('o');
             }
 
         }
@@ -143,10 +143,10 @@ function checkEl(player1, player2) {
 
             if (b2Child == 'x' && b5Child == 'x' && b8Child == 'x') {
                 // x venceu
-                console.log("o x venceu");
+                declareWinner('x');
             } else if (b2Child == 'o' && b5Child == 'o' && b8Child == 'o') {
                 // o venceu 
-                console.log("o O venceu");
+                declareWinner('o');
             }
 
         }
@@ -159,10 +159,10 @@ function checkEl(player1, player2) {
 
             if (b3Child == 'x' && b6Child == 'x' && b9Child == 'x') {
                 // x venceu
-                console.log("o x venceu");
+                declareWinner('x');
             } else if (b3Child == 'o' && b6Child == 'o' && b9Child == 'o') {
                 // o venceu 
-                console.log("o O venceu");
+                declareWinner('o');
             }
 
         }
@@ -176,10 +176,10 @@ function checkEl(player1, player2) {
 
             if (b1Child == 'x' && b5Child == 'x' && b9Child == 'x') {
                 // x venceu
-                console.log("o x venceu");
+                declareWinner('x');
             } else if (b1Child == 'o' && b5Child == 'o' && b9Child == 'o') {
                 // o venceu 
-                console.log("o O venceu");
+                declareWinner('o');
             }
 
         }
@@ -192,10 +192,10 @@ function checkEl(player1, player2) {
 
             if (b3Child == 'x' && b5Child == 'x' && b7Child == 'x') {
                 // x venceu
-                console.log("o x venceu");
+                declareWinner('x');
             } else if (b3Child == 'o' && b5Child == 'o' && b7Child == 'o') {
                 // o venceu 
-                console.log("o O venceu");
+                declareWinner('o');
             }
 
         }
@@ -216,4 +216,28 @@ function checkEl(player1, player2) {
 
 
     } 
+
+
+    // limpa o jogo, declara o vencedor e atualiza o placar
+    function declareWinner(winner) {
+
+        let scoreboardX = document.querySelector("#scoreboard-1");
+        let scoreboardY = document.querySelector("#scoreboard-2");
+        let msg = '';
+
+        if (winner == 'x') {
+            scoreboardX.textContent = passerInt(scoreboardX.textContent) + 1;
+            msg = "O jogador um é o bom"
+        } else if (winner == 'o') {
+            scoreboardY.textContent = passerInt(scoreboardY.textContent) + 1;
+            msg = "O jogador dois é o bom"
+        } else {
+            msg = "Deu velha";
+        }
+
+        //exibe a mensagem
+        messageText.innerHTML = msg;
+        messageContainer.classList.remove("hide");
+
+    }
 
