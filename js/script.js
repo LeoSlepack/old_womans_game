@@ -2,7 +2,7 @@ let x = document.querySelector(".x");
 let o = document.querySelector(".o");
 let boxes = document.querySelectorAll(".box");
 let buttons = document.querySelectorAll("#buttons-container button");
-let messageConatiner = document.querySelector("#message");
+let messageContainer = document.querySelector("#message");
 let messageText = document.querySelector("#message p");
 let secondPlayer;
 
@@ -210,7 +210,7 @@ function checkEl(player1, player2) {
         }
 
         if (counter == 9) {
-            console.log("Deu velha");
+            declareWinner('Deu Velha');
         }
 
 
@@ -226,10 +226,10 @@ function checkEl(player1, player2) {
         let msg = '';
 
         if (winner == 'x') {
-            scoreboardX.textContent = passerInt(scoreboardX.textContent) + 1;
+            scoreboardX.textContent =parseInt(scoreboardX.textContent) + 1;
             msg = "O jogador um é o bom"
         } else if (winner == 'o') {
-            scoreboardY.textContent = passerInt(scoreboardY.textContent) + 1;
+            scoreboardY.textContent = parseInt(scoreboardY.textContent) + 1;
             msg = "O jogador dois é o bom"
         } else {
             msg = "Deu velha";
@@ -239,5 +239,20 @@ function checkEl(player1, player2) {
         messageText.innerHTML = msg;
         messageContainer.classList.remove("hide");
 
+        // Esconde msg
+        setTimeout (function(){ 
+            messageContainer.classList.add("hide");
+        }, 3000);
+
+        //Zerar jogadas
+        player1 = 0;
+        player2 = 0;
+
+        // Remover x e o
+        let boxesToRemove = document.querySelectorAll(".box div");
+
+        for (let i = 0; i < boxesToRemove.length; i++) {
+            boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
+        }
     }
 
